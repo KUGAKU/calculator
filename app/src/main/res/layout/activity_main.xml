@@ -7,15 +7,16 @@
     tools:context=".MainActivity"
     android:orientation="vertical"
     >
+
+    <!-- Row1 -->
     <TextView
-        android:id="@+id/tvInput"
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:background="@color/white"
-        android:textSize="48sp"
         android:maxLength="12"
-        />
-    <!-- Row1 -->
+        android:textSize="48sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -54,7 +55,7 @@
             android:layout_width="0dp"
             android:layout_margin="2dp"
             android:text="/"
-            android:onClick="onDigit" />
+            android:onClick="onOperator" />
     </LinearLayout>
     <!-- Row2 -->
     <LinearLayout
@@ -95,7 +96,7 @@
             android:layout_margin="2dp"
             android:layout_width="0dp"
             android:text="*"
-            android:onClick="onDigit" />
+            android:onClick="onOperator" />
     </LinearLayout>
     <!-- Row3 -->
     <LinearLayout
@@ -136,7 +137,7 @@
             android:layout_width="0dp"
             android:layout_margin="2dp"
             android:text="-"
-            android:onClick="onDigit" />
+            android:onClick="onOperator" />
     </LinearLayout>
     <!-- Row4 -->
     <LinearLayout
@@ -154,7 +155,7 @@
             android:layout_width="0dp"
             android:layout_margin="2dp"
             android:text="."
-            android:onClick="onDigit" />
+            android:onClick="onDecimalPoint" />
         <Button
             android:id="@+id/buttonZero"
             android:layout_weight="1"
@@ -170,7 +171,7 @@
             android:layout_width="0dp"
             android:layout_margin="2dp"
             android:text="CLR"
-            android:onClick="onDigit" />
+            android:onClick="onClear" />
         <Button
             android:id="@+id/buttonAddition"
             android:layout_weight="1"
@@ -178,7 +179,7 @@
             android:layout_width="0dp"
             android:layout_margin="2dp"
             android:text="+"
-            android:onClick="onDigit" />
+            android:onClick="onOperator" />
     </LinearLayout>
     <!-- Row5-->
     <LinearLayout
