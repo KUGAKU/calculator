@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import java.lang.ArithmeticException
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,6 +36,51 @@ class MainActivity : AppCompatActivity() {
             textView.append(".")
             lastNumeric = false
             lastDot = true
+        }
+    }
+
+    fun onEqual(view: View) {
+        val textView = findViewById<TextView>(R.id.textView)
+        if (lastNumeric){
+            var textViewValue = textView.text.toString()
+            var prefix = ""
+            try{
+                if(textViewValue.startsWith("-")) {
+                    prefix = "-"
+                    textViewValue = textViewValue.substring(1)
+                }
+                if (textViewValue.contains("-")) {
+                    val splitValue = textViewValue.split("-")
+                    var one = splitValue[0]
+                    var two = splitValue[1]
+
+                    textView.text = (one.toDouble() - two.toDouble()).toString()
+                }
+                else if (textViewValue.contains("+")) {
+                    val splitValue = textViewValue.split("+")
+                    var one = splitValue[0]
+                    var two = splitValue[1]
+
+                    textView.text = (one.toDouble() + two.toDouble()).toString()
+                }
+                else if (textViewValue.contains("/")) {
+                    val splitValue = textViewValue.split("/")
+                    var one = splitValue[0]
+                    var two = splitValue[1]
+
+                    textView.text = (one.toDouble() / two.toDouble()).toString()
+                }
+                else if (textViewValue.contains("*")) {
+                    val splitValue = textViewValue.split("*")
+                    var one = splitValue[0]
+                    var two = splitValue[1]
+
+                    textView.text = (one.toDouble() * two.toDouble()).toString()
+                }
+
+            }catch(e: ArithmeticException){
+                e.printStackTrace()
+            }
         }
     }
 
